@@ -17,6 +17,14 @@ report.Dictionary.Connections[0].ConnectionString = reportDataObject;
 
 report.Prepare();
 
+// in the case of multi-pages report:
+// 1. copy initial template
+// 2. find the necessary template's page by tag name
+// 3. load the data from appropriate collection
+// 4. export output file to pdf
+// 5. repeat the process from 1. to 4.
+// 6. concatenate all pdf files into one output with PdfSharp lib
+
 // export a document to .pdf
 const string documentName = "test.pdf";
 using var pdfExport = new PDFSimpleExport();
